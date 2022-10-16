@@ -1,0 +1,2 @@
+Build docker image by this command:  docker build . -t tvigstar/movies
+Run docker container by this command: ocker run --name movies -p 8000:8050 -e APP_PORT=8050
