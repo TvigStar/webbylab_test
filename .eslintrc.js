@@ -131,6 +131,7 @@ module.exports = {
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/ban-types': 'error',
     '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/class-name-casing': 'off', // TODO
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/consistent-type-definitions': 'error',

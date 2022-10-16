@@ -1,5 +1,5 @@
 import { UserModel } from '../../database';
-import { IRequestExtended,  } from '../../models';
+import { IRequestExtended } from '../../models';
 import { NextFunction, Response } from 'express';
 import { comparePassword, tokenizer } from '../../helpers';
 import { ResponseStatusCodesEnum } from '../../constants';

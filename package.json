@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node -r dotenv/config --inspect=0.0.0.0:9227 ./dist/",
     "start:dev": "rimraf dist && npm run lint && tsc-watch --outDir ./dist --onSuccess \"npm run start\" --onFailure \"'echo Compilation Failed'\"",
-   "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc",
     "tsc": "rimraf dist && npm run lint && tsc --watch",
     "lint": "eslint --fix --ext .ts,.js src"
   },
@@ -27,7 +27,8 @@
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.25.1",
     "sequelize-typescript": "^2.1.3",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
