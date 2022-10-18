@@ -62,8 +62,15 @@ class MoviesController {
 
   async getMoviesByParams(req: Request, res: Response, next: NextFunction){
     try {
-      const { limit = 20, offset = 0, sortBy = 'id', order = 'DESC', search = '', ...filter } = req.query;
-      const movies = await movieService.getByPrams({ limit, offset, order, sortBy, filter, search });
+      const { limit = 20, offset = 0, sortBy = 'id', order = 'DESC', actors = '', title = '' } = req.query;
+      const search = req.query.search as string;
+      const movies = await movieService.getByPrams({
+        limit,
+        offset,
+        order,
+        sortBy,
+        search: search ? search.split(',') : [], actors, title
+      });
 
       res.json(movies);
     } catch (err){

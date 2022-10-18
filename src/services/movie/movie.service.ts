@@ -20,17 +20,25 @@ class MovieService {
     return MovieModel.update(updateObj, {where: { id}} );
   }
 
-  getByPrams({offset, limit, sortBy, order, filter, search}: any){
+  getByPrams({offset, limit, sortBy, order, actors, title, search}: any){
     return MovieModel.findAll({
       offset,
       limit,
       order: [[sortBy, order]],
       where:
-       { [Op.or]:
-        [
-          {actors: { [Op.like]: `%${filter.actor || search}%` }},
-          {title: { [Op.like]: `%${filter.title || search}%` }}
-        ]
+       {
+         actors: { [Op.or]: [
+           !search.length && {[Op.like]: `%${actors}%`},
+           ...search.map((el: string) => {
+             return {
+               [Op.like]: `%${el}%`
+             };
+           })
+         ] },
+         title: { [Op.or]: [
+           !search.length && {[Op.like]: `%${title}%`},
+           search
+         ]}
        }
     });
   }
